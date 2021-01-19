@@ -14,10 +14,12 @@ public class RootFrame extends JFrame {
 	RootFrame () {
 		setIconImage(Toolkit.getDefaultToolkit().getImage("C:\\Users\\Shunx\\eclipse-workspace\\test_pms\\img\\logo2.png"));
 		
-		getContentPane().add(new MainAppPanels());
+		MainAppPanels mainAppPanels = new MainAppPanels();
+		getContentPane().add(mainAppPanels);
+		mainAppPanels.setLayout(null);
 		this.setTitle("Dashboard");
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setResizable(false);
+		//this.setResizable(false);
 		this.pack();
 		this.setVisible(true);
 		this.setLocationRelativeTo(null);
