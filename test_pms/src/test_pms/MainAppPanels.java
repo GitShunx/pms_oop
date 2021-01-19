@@ -7,6 +7,7 @@ import javax.swing.text.DefaultEditorKit.CopyAction;
 
 import java.util.Random;
 import javax.swing.border.LineBorder;
+import javax.swing.border.BevelBorder;
 
 public class MainAppPanels extends JPanel implements ActionListener{
 	
@@ -47,6 +48,8 @@ public class MainAppPanels extends JPanel implements ActionListener{
 	public void menu_panel()	{
 		Image img  = new ImageIcon(this.getClass().getResource("/alphalogo.png")).getImage();
 		Image img_welcome  = new ImageIcon(this.getClass().getResource("/WELCOME.png")).getImage();
+		
+		
 		setLayout(null);
 		
 	
@@ -58,7 +61,8 @@ public class MainAppPanels extends JPanel implements ActionListener{
 		
 		//
 		JPanel Jpanel = new JPanel();
-		Jpanel.setBounds(316, 91, 1074, 555);
+		Jpanel.setBorder(new BevelBorder(BevelBorder.RAISED, null, null, null, null));
+		Jpanel.setBounds(326, 101, 1052, 545);
 		Jpanel.setBackground(Color.LIGHT_GRAY);
 		add(Jpanel);
 		Jpanel.setLayout(new CardLayout(0, 0));
@@ -74,68 +78,233 @@ public class MainAppPanels extends JPanel implements ActionListener{
 		
 		JLabel lblNewLabel_3 = new JLabel("");
 		lblNewLabel_3.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_3.setBounds(322, 199, 490, 117);
+		lblNewLabel_3.setBounds(310, 190, 490, 117);
 		panel_1_1.add(lblNewLabel_3);
 		lblNewLabel_3.setIcon(new ImageIcon(img_welcome));
 		
-//		JLabel panel_1_1 = new JLabel();
-//		pane
+		JPanel dashboard = new JPanel();
+		dashboard.setBackground(Color.white);
+		layeredPane.add(dashboard, "panel1");
+		dashboard.setLayout(null);
 		
-		
-		
-		JPanel panel_1 = new JPanel();
-		panel_1.setBackground(Color.white);
-		layeredPane.add(panel_1, "panel1");
-		panel_1.setLayout(null);
-		
-		JLabel lblNewLabel_1 = new JLabel("Dashboard");
+		JLabel lblNewLabel_1 = new JLabel("DASHBOARD");
+		lblNewLabel_1.setOpaque(true);
+		lblNewLabel_1.setBackground(Color.ORANGE);
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		lblNewLabel_1.setBounds(10, 11, 117, 40);
-		panel_1.add(lblNewLabel_1);
+		dashboard.add(lblNewLabel_1);
+		
+		JPanel total_emp_display = new JPanel();
+		total_emp_display.setBounds(33, 75, 214, 130);
+		dashboard.add(total_emp_display);
+		total_emp_display.setLayout(null);
 		
 		JLabel lblNewLabel_2 = new JLabel("Total Employees");
-		lblNewLabel_2.setBounds(56, 146, 208, 125);
-		panel_1.add(lblNewLabel_2);
+		lblNewLabel_2.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2.setBounds(10, 92, 125, 27);
+		total_emp_display.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_4 = new JLabel("2");
+		lblNewLabel_4.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		lblNewLabel_4.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4.setBounds(10, 11, 46, 47);
+		total_emp_display.add(lblNewLabel_4);
+		
+		
+		//dashboard
+		
+		Image img_emp  = new ImageIcon(this.getClass().getResource("/employees.png")).getImage();
+		Image img_dept  = new ImageIcon(this.getClass().getResource("/department1.png")).getImage();
+		Image img_prsnt  = new ImageIcon(this.getClass().getResource("/present.png")).getImage();
+		Image img_onleave  = new ImageIcon(this.getClass().getResource("/onleavetoday.png")).getImage();
+		
+		JLabel img_1 = new JLabel("");
+		img_1.setHorizontalAlignment(SwingConstants.CENTER);
+		img_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		img_1.setBounds(158, 11, 46, 47);
+		total_emp_display.add(img_1);
+		img_1.setIcon(new ImageIcon(img_emp));
+		
+		JPanel total_dept_display = new JPanel();
+		total_dept_display.setBounds(287, 75, 214, 130);
+		dashboard.add(total_dept_display);
+		total_dept_display.setLayout(null);
 		
 		JLabel lblNewLabel_2_1 = new JLabel("Total Department");
-		lblNewLabel_2_1.setBounds(291, 146, 208, 125);
-		panel_1.add(lblNewLabel_2_1);
+		lblNewLabel_2_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1.setBounds(10, 92, 125, 27);
+		total_dept_display.add(lblNewLabel_2_1);
 		
+		JLabel lblNewLabel_4_1 = new JLabel("5");
+		lblNewLabel_4_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		lblNewLabel_4_1.setBounds(10, 11, 46, 47);
+		total_dept_display.add(lblNewLabel_4_1);
 		
-		JPanel panel_2 = new JPanel();
-		panel_2.setBackground(Color.GREEN);
-		layeredPane.add(panel_2, "panel2");
+		JLabel img_1_1 = new JLabel("");
+		img_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		img_1_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		img_1_1.setBounds(158, 11, 46, 47);
+		total_dept_display.add(img_1_1);
+		img_1_1.setIcon(new ImageIcon(img_dept));
 		
-		JPanel panel_3 = new JPanel();
-		panel_3.setBackground(Color.RED);
-		layeredPane.add(panel_3, "panel3");
+		JPanel present_today = new JPanel();
+		present_today.setBounds(541, 75, 214, 130);
+		dashboard.add(present_today);
+		present_today.setLayout(null);
 		
-		JPanel panel_4 = new JPanel();
-		panel_4.setBackground(Color.YELLOW);
-		layeredPane.add(panel_4, "panel4");
+		JLabel lblNewLabel_2_1_1 = new JLabel("Present Today");
+		lblNewLabel_2_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1_1.setBounds(10, 92, 125, 27);
+		present_today.add(lblNewLabel_2_1_1);
 		
-		JPanel panel_5 = new JPanel();
-		panel_5.setBackground(Color.PINK);
-		layeredPane.add(panel_5, "panel5");
+		JLabel lblNewLabel_4_1_1 = new JLabel("0");
+		lblNewLabel_4_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4_1_1.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		lblNewLabel_4_1_1.setBounds(10, 11, 46, 47);
+		present_today.add(lblNewLabel_4_1_1);
 		
-		JPanel panel_6 = new JPanel();
-		panel_6.setBackground(Color.BLACK);
-		layeredPane.add(panel_6, "panel6");
+		JLabel img_1_2 = new JLabel("");
+		img_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		img_1_2.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		img_1_2.setBounds(158, 11, 46, 47);
+		present_today.add(img_1_2);
+		img_1_2.setIcon(new ImageIcon(img_prsnt));
 		
-		JPanel panel_7 = new JPanel();
-		panel_7.setBackground(new Color(0, 128, 0));
-		layeredPane.add(panel_7, "panel7");
+		JPanel on_leave_today = new JPanel();
+		on_leave_today.setLayout(null);
+		on_leave_today.setBounds(795, 75, 214, 130);
+		dashboard.add(on_leave_today);
 		
-		JPanel panel_8 = new JPanel();
-		panel_8.setBackground(new Color(30, 144, 255));
-		layeredPane.add(panel_8, "panel8");
+		JLabel lblNewLabel_2_1_1_1 = new JLabel("On Leave Today");
+		lblNewLabel_2_1_1_1.setFont(new Font("Tahoma", Font.BOLD, 14));
+		lblNewLabel_2_1_1_1.setBounds(10, 92, 125, 27);
+		on_leave_today.add(lblNewLabel_2_1_1_1);
 		
-		JPanel panel_9 = new JPanel();
-		panel_9.setBackground(new Color(128, 0, 0));
-		layeredPane.add(panel_9, "panel9");
+		JLabel lblNewLabel_4_1_2 = new JLabel("0");
+		lblNewLabel_4_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_4_1_2.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		lblNewLabel_4_1_2.setBounds(10, 11, 46, 47);
+		on_leave_today.add(lblNewLabel_4_1_2);
 		
-		JPanel panel_10 = new JPanel();
-		panel_10.setBackground(new Color(255, 222, 173));
-		layeredPane.add(panel_10, "panel10");
+		JLabel img_1_3 = new JLabel("");
+		img_1_3.setHorizontalAlignment(SwingConstants.CENTER);
+		img_1_3.setFont(new Font("Tahoma", Font.PLAIN, 35));
+		img_1_3.setBounds(158, 11, 46, 47);
+		on_leave_today.add(img_1_3);
+		img_1_3.setIcon(new ImageIcon(img_onleave));
+		
+		//employee
+		
+		Image img_add  = new ImageIcon(this.getClass().getResource("/add_emp.png")).getImage();
+		Image img_mng = new ImageIcon(this.getClass().getResource("/mng_emp.png")).getImage();
+		
+		JPanel employee = new JPanel();
+		employee.setBackground(Color.white);
+		layeredPane.add(employee, "panel2");
+		employee.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setBounds(205, 105, 239, 257);
+		employee.add(panel);
+		panel.setLayout(null);
+		
+		JLabel lblNewLabel_5 = new JLabel("");
+		lblNewLabel_5.setBounds(7, 0, 229, 257);
+		panel.add(lblNewLabel_5);
+		lblNewLabel_5.setIcon(new ImageIcon(img_add));
+		
+		JPanel panel_11 = new JPanel();
+		panel_11.setBounds(595, 105, 239, 257);
+		employee.add(panel_11);
+		panel_11.setLayout(null);
+		
+		JLabel lblNewLabel_6 = new JLabel("");
+		lblNewLabel_6.setBounds(0, 0, 239, 257);
+		panel_11.add(lblNewLabel_6);
+		lblNewLabel_6.setIcon(new ImageIcon(img_mng));
+		
+		JPanel panel_12 = new JPanel();
+		panel_12.setBounds(518, 81, 4, 299);
+		employee.add(panel_12);
+		panel_12.setBackground(Color.orange);
+		
+		JLabel lblNewLabel_1_1 = new JLabel("EMPLOYEE");
+		lblNewLabel_1_1.setOpaque(true);
+		lblNewLabel_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_1_1.setBackground(Color.ORANGE);
+		lblNewLabel_1_1.setBounds(10, 11, 117, 40);
+		employee.add(lblNewLabel_1_1);
+		
+		JPanel department = new JPanel();
+		department.setBackground(Color.RED);
+		layeredPane.add(department, "panel3");
+		department.setLayout(null);
+		
+		JLabel lblNewLabel_1_2 = new JLabel("DEPARTMENT");
+		lblNewLabel_1_2.setOpaque(true);
+		lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_2.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_1_2.setBackground(Color.ORANGE);
+		lblNewLabel_1_2.setBounds(10, 11, 117, 40);
+		department.add(lblNewLabel_1_2);
+		
+		JPanel attendance = new JPanel();
+		attendance.setBackground(Color.YELLOW);
+		layeredPane.add(attendance, "panel4");
+		attendance.setLayout(null);
+		
+		JLabel lblNewLabel_1_3 = new JLabel("ATTENDANCE");
+		lblNewLabel_1_3.setOpaque(true);
+		lblNewLabel_1_3.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_3.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_1_3.setBackground(Color.ORANGE);
+		lblNewLabel_1_3.setBounds(10, 11, 117, 40);
+		attendance.add(lblNewLabel_1_3);
+		
+		JPanel leave = new JPanel();
+		leave.setBackground(Color.PINK);
+		layeredPane.add(leave, "panel5");
+		leave.setLayout(null);
+		
+		JLabel lblNewLabel_1_3_1 = new JLabel("LEAVE");
+		lblNewLabel_1_3_1.setOpaque(true);
+		lblNewLabel_1_3_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_3_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_1_3_1.setBackground(Color.ORANGE);
+		lblNewLabel_1_3_1.setBounds(10, 11, 117, 40);
+		leave.add(lblNewLabel_1_3_1);
+		
+		JPanel payroll = new JPanel();
+		payroll.setBackground(Color.BLACK);
+		layeredPane.add(payroll, "panel6");
+		payroll.setLayout(null);
+		
+		JLabel lblNewLabel_1_3_1_1 = new JLabel("PAYROLL");
+		lblNewLabel_1_3_1_1.setOpaque(true);
+		lblNewLabel_1_3_1_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1_3_1_1.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		lblNewLabel_1_3_1_1.setBackground(Color.ORANGE);
+		lblNewLabel_1_3_1_1.setBounds(10, 11, 117, 40);
+		payroll.add(lblNewLabel_1_3_1_1);
+		
+		JPanel holiday = new JPanel();
+		holiday.setBackground(new Color(0, 128, 0));
+		layeredPane.add(holiday, "panel7");
+		
+		JPanel daily = new JPanel();
+		daily.setBackground(new Color(30, 144, 255));
+		layeredPane.add(daily, "panel8");
+		
+		JPanel users = new JPanel();
+		users.setBackground(new Color(128, 0, 0));
+		layeredPane.add(users, "panel9");
+		
+		JPanel acitivity_log = new JPanel();
+		acitivity_log.setBackground(new Color(255, 222, 173));
+		layeredPane.add(acitivity_log, "panel10");
 		
 		cardLayout = (CardLayout)(layeredPane.getLayout());
 		
